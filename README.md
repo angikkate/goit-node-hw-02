@@ -105,7 +105,7 @@ npm run dev
 | `title`       | рядок, обов'язковий, 5–50 символів                     |
 | `description` | рядок, обов'язковий, мінімум 10 символів               |
 | `price`       | число, обов'язкове, > 0                                |
-| `category`    | рядок, обов'язковий: `sale`, `service`, `job`, `other` |
+| `category`    | рядок, обов'язковий: `sale`, `buy`, `service`, `exchange`, `other`|
 
 PATCH використовує ті ж правила валідації, але всі поля опціональні (хоча б одне має бути присутнє).
 
@@ -159,6 +159,7 @@ boilerplate/
 | `npm start`               | Запуск у виробничому режимі          |
 | `npm run prisma:migrate`  | Створення та застосування міграцій   |
 | `npm run prisma:generate` | Генерація Prisma Client              |
+| `npm run prisma:studio`   | Запуск графічного інтерфейсу Prisma  |
 
 ## Документація API
 
