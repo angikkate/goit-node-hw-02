@@ -11,9 +11,9 @@ export const registerSchema = z.object({
   // bcrypt обробляє максимум 72 байти, тому довший пароль не має сенсу
   password: z
     .string()
-    .min(8, 'Password must be at least 8 characters')
+    .min(6, 'Password must be at least 6 characters')
     .max(72, 'Password must be at most 72 characters'),
-  name: z.string().trim().min(1, 'Name is required').max(50, 'Name must be at most 50 characters'),
+  name: z.string().trim().min(2, 'Name must be at least 2 characters').max(50, 'Name must be at most 50 characters'),
 });
 
 export const loginSchema = z.object({

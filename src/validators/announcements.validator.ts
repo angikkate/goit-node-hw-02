@@ -1,16 +1,16 @@
 import { z } from 'zod';
 
-export const CATEGORIES = ['sale', 'buy', 'service', 'exchange', 'other'] as const;
+export const CATEGORIES = z.enum(['sale', 'service', 'job', 'other']);
 
 export const createAnnouncementSchema = z.object({
-  title: z.string().trim().min(1, 'Title is required').max(100, 'Title must be at most 100 characters'),
+  title: z.string().trim().min(5, 'Title must be at least 5 characters').max(50, 'Title must be at most 50 characters'),
   description: z
     .string()
     .trim()
-    .min(1, 'Description is required')
+    .min(10, 'Description must be at least 10 characters')
     .max(2000, 'Description must be at most 2000 characters'),
-  price: z.number().int('Price must be an integer').min(0, 'Price cannot be negative'),
-  category: z.enum(CATEGORIES),
+  price: z.number().positive(),
+  category: CATEGORIES,
 });
 
 // Усі поля опціональні, але порожній об'єкт {} не дозволений
